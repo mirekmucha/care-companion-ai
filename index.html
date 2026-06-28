@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Companion Agent - Caregiver Assistant</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-icon">C</div>
+      <span class="logo-text">Care Companion Agent</span>
+    </div>
+    <div class="header-meta">
+      <div id="senior-indicator" class="senior-indicator empty">
+        <span class="status-dot"></span>
+        <span id="indicator-text">No Profile Active</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <!-- Left Column: Senior Profile -->
+    <section class="card" id="profile-section">
+      <div class="card-header">
+        <h2 class="card-title">👵 Senior Profile</h2>
+        <span id="last-updated" style="font-size: 0.75rem; color: var(--text-muted);"></span>
+      </div>
+      <div class="card-body">
+        <form id="profile-form">
+          <div class="form-group">
+            <label for="fullname">Full Name <span>*</span></label>
+            <input type="text" id="fullname" class="form-control" placeholder="e.g. Margaret Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="age">Age <span>*</span></label>
+            <input type="number" id="age" class="form-control" placeholder="e.g. 78" required min="0" max="150">
+          </div>
+          <div class="form-group">
+            <label for="conditions">Chronic Conditions</label>
+            <textarea id="conditions" class="form-control" placeholder="e.g. Hypertension, Osteoarthritis"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="allergies">Allergies</label>
+            <input type="text" id="allergies" class="form-control" placeholder="e.g. Penicillin, Strawberries">
+          </div>
+          <div class="form-group">
+            <label for="mobility">Mobility Notes</label>
+            <input type="text" id="mobility" class="form-control" placeholder="e.g. Uses a walker indoors, needs help stairs">
+          </div>
+          <div class="form-group">
+            <label for="emergency">Emergency Contact <span>*</span></label>
+            <input type="text" id="emergency" class="form-control" placeholder="e.g. John Smith (Son) - 555-0199" required>
+          </div>
+          <div class="form-group">
+            <label for="carenotes">General Care Notes</label>
+            <textarea id="carenotes" class="form-control" placeholder="e.g. Prefers tea over coffee. Sundowns slightly after 6pm."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="save-profile-btn">Save Profile</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Center Column: Care Logging Chat Agent -->
+    <section class="card" id="chat-section">
+      <div class="card-header">
+        <h2 class="card-title">🤖 Care Companion Assistant</h2>
+      </div>
+      <div class="chat-container">
+        <div class="chat-history" id="chat-history">
+          <!-- Initial greeting -->
+          <div class="message agent">
+            Hello! I am your Care Companion Assistant. Log a care event in natural language, or ask me questions based on the profile and recent event logs.
+            <span class="message-meta">Agent</span>
+          </div>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" id="chat-input" class="form-control" placeholder="Describe symptoms, meds, or notes..." autocomplete="off">
+          <button id="send-chat-btn" class="btn btn-indigo">Log Event</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Care History & Doctor Summary -->
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <!-- Care History List -->
+      <section class="card" style="flex: 1;">
+        <div class="card-header">
+          <h2 class="card-title">📋 Event History</h2>
+          <button id="clear-history-btn" class="btn btn-secondary" style="width: auto; padding: 0.35rem 0.75rem; font-size: 0.8rem;">Clear</button>
+        </div>
+        <div class="card-body">
+          <div class="event-list" id="event-list">
+            <!-- Dynamically populated -->
+            <div class="empty-state">
+              <span class="empty-state-icon">📝</span>
+              <p>No care events logged yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Doctor Summary Generator -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">🩺 Doctor Appointment Summary</h2>
+        </div>
+        <div class="card-body">
+          <div class="disclaimer-box">
+            <span>⚠️</span>
+            <span>This product and summary do not replace professional medical advice. Always consult a physician.</span>
+          </div>
+          <div class="form-group">
+            <label for="date-range">Select Range</label>
+            <select id="date-range" class="form-control">
+              <option value="7">Last 7 Days (Recommended)</option>
+              <option value="30">Last 30 Days</option>
+              <option value="all">Full History</option>
+            </select>
+          </div>
+          <button id="generate-summary-btn" class="btn btn-primary">Generate Summary</button>
+          
+          <div class="summary-container" style="margin-top: 1.25rem; display: none;" id="summary-result-container">
+            <div class="summary-preview" id="summary-preview"></div>
+            <button id="copy-summary-btn" class="btn btn-indigo">📋 Copy to Clipboard</button>
+            <div id="traceability-container" style="margin-top: 0.75rem;">
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Events referenced in this summary:</span>
+              <div id="trace-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Care Companion Agent &copy; 2026. This application is an organizer/log helper and does NOT provide medical diagnoses or replace professional healthcare advisory.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
