@@ -1,6 +1,6 @@
-# Care Companion Agent 👵🤖
+# Care Companion Assistant 👵🤖
 
-**Care Companion Agent** is an AI-powered assistant designed for family caregivers of older adults. It reduces caregiver cognitive load by turning scattered daily observations, symptoms, and care details into structured, context-aware records and doctor-ready summaries.
+**Care Companion Assistant** is an AI-powered assistant designed for family caregivers of older adults. It reduces caregiver cognitive load by turning scattered daily observations, symptoms, and care details into structured, context-aware records and doctor-ready summaries.
 
 ---
 
@@ -74,7 +74,7 @@ CareCompanionAgent/
 ## 🔍 Developer Tools & Logging
 
 To help developers verify that the agent's code is properly invoked:
-- **Application Logs**: Key operations (user input submission, safety checks, event classification, and summary generation) are logged to the browser's developer console with the prefix `[Care Companion Agent]`.
+- **Application Logs**: Key operations (user input submission, safety checks, event classification, and summary generation) are logged to the browser's developer console with the prefix `[Care Companion Assistant]`.
 - **How to view the logs**:
   1. Open the application in your browser.
   2. Open the developer tools (Press `F12` or `Ctrl + Shift + I` / `Cmd + Option + I`).
