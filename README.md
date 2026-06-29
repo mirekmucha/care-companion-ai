@@ -71,6 +71,20 @@ CareCompanionAgent/
 
 ---
 
+## 🔍 Developer Tools & Logging
+
+To help developers verify that the agent's code is properly invoked:
+- **Application Logs**: Key operations (user input submission, safety checks, event classification, and summary generation) are logged to the browser's developer console with the prefix `[Care Companion Agent]`.
+- **How to view the logs**:
+  1. Open the application in your browser.
+  2. Open the developer tools (Press `F12` or `Ctrl + Shift + I` / `Cmd + Option + I`).
+  3. Navigate to the **Console** tab to view live agent invocations and execution details.
+
+## 💾 Local Persistence
+- All senior profile details and logged care history are saved locally inside the browser's `localStorage` (scoped to the site's origin/domain). No data is sent to external servers, providing offline functionality and privacy out of the box.
+
+---
+
 ## 📄 License & Disclaimer
 
 This project is intended for demonstration and caregiver support organizational purposes only. It is **not** a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider regarding any medical conditions.
